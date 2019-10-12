@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[type="text"]{
+            width: 100%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <span>请输入一组数字,用逗号分隔</span><br>
+    <input type="text" id="in1" ><br>
+    <input type="button" value="插入排序" id="charuPx"><br>
+    <input type="text" id="out1" >
+</body>
+<script>
+    var in1=document.getElementById("in1");
+    var charuPx=document.getElementById("charuPx");
+    var out1=document.getElementById("out1")
+    var Arr1;
+    in1.onchange=function(){
+         Arr1=in1.value.split(",");
+         console.log(Arr1)
+    }
+    charuPx.onclick=function(){    
+        var i;        
+        var temp;
+        for(i=1;i<Arr1.length;i++){
+            var k=i;
+
+            while(k>0 && parseInt(Arr1[k])<parseInt(Arr1[k-1])){
+                   temp=Arr1[k-1];
+                   Arr1[k-1]=Arr1[k];
+                   Arr1[k]=temp;
+                   k--;
+            }         
+        }
+
+        console.log(Arr1);
+        out1.value=Arr1.join(",");
+    }
+</script>
+</html>

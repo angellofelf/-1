@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[type="text"]{
+            width: 100%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <span>请输入一组数字,用逗号分隔</span><br>
+    <input type="text" id="in1" ><br>
+    <input type="button" value="选择排序" id="choosePx"><br>
+    <input type="text" id="out1" >
+</body>
+<script>
+    var in1=document.getElementById("in1");
+    var choosePx=document.getElementById("choosePx");
+    var out1=document.getElementById("out1")
+    var Arr1;
+    in1.onchange=function(){
+         Arr1=in1.value.split(",");
+         console.log(Arr1)
+    }
+    choosePx.onclick=function(){
+        
+        
+        var i;        
+        var temp;
+        for(i=0;i<Arr1.length;i++){
+            var k=i;
+            for(j=k+1;j<Arr1.length;j++){
+                if(parseInt(Arr1[k])>parseInt(Arr1[j])){
+                    k = j;
+                }         
+            }
+            temp=Arr1[i];
+            Arr1[i]=Arr1[k];
+            Arr1[k]=temp;
+        }
+        console.log(Arr1);
+        out1.value=Arr1.join(",");
+    }
+</script>
+</html>
